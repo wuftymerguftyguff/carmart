@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<mosinstall type="component">
+   <name>Marketplace</name>
+   <creationDate>12.11.2006</creationDate>
+   <author>Achim Fischer</author>
+   <copyright>Copyright 2005-2006 joomster.com Achim Fischer. All Rights Reserved.</copyright>
+   <authorEmail>achim@joomster.com</authorEmail>
+   <authorUrl>www.joomster.com</authorUrl>
+   <version>1.3.1</version>
+   <description>Marketplace Classifieds Component for Joomla!</description>
+
+   <files>
+      <filename>write_ad.php</filename>
+      <filename>delete_ad.php</filename>
+      <filename>footer.php</filename>
+      <filename>language/english.php</filename>
+      <filename>language/finnish.php</filename>
+      <filename>language/german.php</filename>
+      <filename>language/germani.php</filename>
+      <filename>language/spanish.php</filename>
+      <filename>marketplace.php</filename>
+      <filename>marketplace.css</filename>
+      <filename>recent5.php</filename>
+      <filename>show_ad.php</filename>
+      <filename>show_category.php</filename>
+      <filename>show_index.php</filename>
+      <filename>show_rules.php</filename>
+      <filename>topmenu.php</filename>
+   </files>
+
+   <images>
+      <filename>images/entries/dummy.gif</filename>
+      <filename>images/categories/default.gif</filename>
+      <filename>images/system/home.gif</filename>
+      <filename>images/system/writead.gif</filename>
+      <filename>images/system/rules.gif</filename>
+      <filename>images/system/warning.gif</filename>
+      <filename>images/system/nopic.gif</filename>
+      <filename>images/system/success.gif</filename>
+      <filename>images/system/myads.gif</filename>
+      <filename>images/system/editad.gif</filename>
+      <filename>images/system/deletead.gif</filename>
+   </images>
+
+   <install>
+      <queries>
+
+         <query>
+		DROP TABLE IF EXISTS `#__marketplace_categories`;
+         </query>
+         <query>
+		CREATE TABLE IF NOT EXISTS `#__marketplace_categories` (
+		  		`id`               INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+		  		`parent`           INTEGER UNSIGNED DEFAULT '0',
+		  		`name`             VARCHAR(50) DEFAULT NULL,
+		  		`description`      VARCHAR(250) DEFAULT NULL,
+		  		`image`            VARCHAR(250) DEFAULT NULL,
+		  		`has_entries`      TINYINT(4) DEFAULT '0',
+		  		`sort_order`       INTEGER DEFAULT '0',
+          		`published`        TINYINT(1) DEFAULT 0,
+		  PRIMARY KEY  (`id`),
+		  KEY `marketplace_categories_parent` (`parent`),
+		  KEY `marketplace_categories_sort_order` (`sort_order`)
+		) TYPE=MyISAM;
+         </query>
+
+
+         <query>
+		INSERT INTO `#__marketplace_categories` VALUES (1,0,'Category Container1','This category has subcategories','',0,1,0);
+         </query>
+         <query>
+		INSERT INTO `#__marketplace_categories` VALUES (2,1,'Category1','Description for Category1','default.gif',1,2,0);
+         </query>
+         <query>
+		INSERT INTO `#__marketplace_categories` VALUES (3,1,'Category2','Description for Category2','default.gif',1,3,0);
+         </query>
+
+         <query>
+		INSERT INTO `#__marketplace_categories` VALUES (4,0,'Category Container2','This category has subcategories','',0,10,0);
+         </query>
+         <query>
+		INSERT INTO `#__marketplace_categories` VALUES (5,4,'Category3','Description for Category3','default.gif',1,20,0);
+         </query>
+
+
+
+         <query>
+		DROP TABLE IF EXISTS `#__marketplace_ads`;
+         </query>
+         <query>
+		CREATE TABLE IF NOT EXISTS `#__marketplace_ads` (
+		  		`id`                  INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+		  		`category`            INTEGER UNSIGNED DEFAULT 0,
+		  		`userid`              INTEGER UNSIGNED DEFAULT NULL,
+		  		`user`                VARCHAR(25) DEFAULT NULL,
+		  		`name`                VARCHAR(50) DEFAULT NULL,
+		  		`surname`             VARCHAR(50) DEFAULT NULL,
+		  		`street`              VARCHAR(50) DEFAULT NULL,
+		  		`zip`                 VARCHAR(5)  DEFAULT NULL,
+		  		`city`                VARCHAR(50) DEFAULT NULL,
+		  		`state`               VARCHAR(50) DEFAULT NULL,
+		  		`country`             VARCHAR(50) DEFAULT NULL,
+		  		`phone1`              VARCHAR(50) DEFAULT NULL,
+		  		`phone2`              VARCHAR(50) DEFAULT NULL,
+		  		`email`               VARCHAR(50) DEFAULT NULL,
+		  		`web`                 VARCHAR(80) DEFAULT NULL,
+		  		`ad_type`             VARCHAR(20) DEFAULT NULL,
+		  		`ad_headline`         VARCHAR(80) DEFAULT NULL,
+		  		`ad_text`             TEXT,
+		  		`ad_condition`        VARCHAR(20) DEFAULT NULL,
+		  		`ad_price`            VARCHAR(20) DEFAULT NULL,
+		  		`ad_image`            TINYINT(4) DEFAULT 0,
+		  		`date_created`        DATE DEFAULT NULL,
+		  		`date_lastmodified`   DATE DEFAULT NULL,
+		  		`views`               INTEGER UNSIGNED DEFAULT 0,
+          		`duration`            INTEGER UNSIGNED DEFAULT 30,
+          		`flag_featured`       TINYINT(1) DEFAULT 0,
+          		`flag_top`            TINYINT(1) DEFAULT 0,
+          		`flag_commercial`     TINYINT(1) DEFAULT 0,
+          		`published`           TINYINT(1) DEFAULT 1,
+		  PRIMARY KEY  (`id`),
+		  KEY `marketplace_ads_category` (`category`),
+		  KEY `marketplace_ads_userid` (`userid`),
+		  KEY `marketplace_ads_ad_type` (`ad_type`)
+		) TYPE=MyISAM;
+         </query>
+
+         <query>
+		DROP TABLE IF EXISTS `#__marketplace_config`;
+         </query>
+         <query>
+            CREATE TABLE IF NOT EXISTS `#__marketplace_config` (
+                    `id` 				              INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  				    `admin_userid`                    INTEGER UNSIGNED DEFAULT 0,
+  				    `duration`                        INTEGER UNSIGNED DEFAULT 30,
+			    	`date_deleted`                    DATE DEFAULT '0000-00-00',
+  				    `ads_per_page`                    INTEGER UNSIGNED NOT NULL DEFAULT 20,
+  				    `max_image_size`                  INTEGER UNSIGNED NOT NULL DEFAULT 102400,
+          			`ad_default`                      TINYINT(1) DEFAULT 1,
+          			`ad_contact_registered_only`      TINYINT(1) DEFAULT 0,
+          			`use_surname`                     TINYINT(1) DEFAULT 0,
+          			`use_street`                      TINYINT(1) DEFAULT 0,
+          			`use_zip`                         TINYINT(1) DEFAULT 0,
+          			`use_city`                        TINYINT(1) DEFAULT 0,
+          			`use_state`                       TINYINT(1) DEFAULT 0,
+          			`use_country`                     TINYINT(1) DEFAULT 0,
+          			`use_web`                         TINYINT(1) DEFAULT 0,
+          			`use_phone1`                      TINYINT(1) DEFAULT 0,
+          			`use_phone2`                      TINYINT(1) DEFAULT 0,
+          			`use_condition`                   TINYINT(1) DEFAULT 0,
+                    `use_primezilla`                  TINYINT(1) DEFAULT 0,
+                    `use_primezillaforcontact`        TINYINT(1) DEFAULT 0,
+          		  PRIMARY KEY  (`id`)
+		) TYPE=MYISAM;
+         </query>
+		<query>
+			INSERT INTO `#__marketplace_config`(
+					id,
+					admin_userid,
+					duration,
+					date_deleted,
+					ads_per_page,
+					max_image_size,
+          		    ad_default,
+          		    ad_contact_registered_only,
+          		    use_surname,
+          		    use_street,
+          		    use_zip,
+          		    use_city,
+          		    use_state,
+          		    use_country,
+          		    use_web,
+          		    use_phone1,
+          		    use_phone2,
+          		    use_condition,
+          		    use_primezilla,
+          		    use_primezillaforcontact
+				)
+				VALUES(
+					1,
+					999999,
+					30,
+					'0000-00-00',
+					20,
+					102400,
+					1,
+					0,
+					0,
+					0,
+					0,
+					0,
+					0,
+					0,
+					0,
+					0,
+					0,
+					0,
+					0,
+					0
+					);
+		</query>
+
+         <query>
+		DROP TABLE IF EXISTS `#__marketplace_types`;
+         </query>
+         <query>
+		CREATE TABLE IF NOT EXISTS `#__marketplace_types` (
+		  		`id`               INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+		  		`name`             VARCHAR(80) DEFAULT NULL,
+		  		`sort_order`       INTEGER DEFAULT '0',
+          		`published`        TINYINT(1) DEFAULT 0,
+		  PRIMARY KEY  (`id`),
+		  KEY `marketplace_types_name` (`name`),
+		  KEY `marketplace_types_sort_order` (`sort_order`)
+		) TYPE=MyISAM;
+         </query>
+		<query>
+			INSERT INTO `#__marketplace_types`( id, name, sort_order, published)
+				            VALUES ( 1, 'For Sale', 1, 1 );
+		</query>
+		<query>
+			INSERT INTO `#__marketplace_types`( id, name, sort_order, published)
+				            VALUES ( 2, 'Wanted', 2, 1 );
+		</query>
+		<query>
+			INSERT INTO `#__marketplace_types`( id, name, sort_order, published)
+				            VALUES ( 3, 'Want to change', 3, 1 );
+		</query>
+
+
+
+
+      </queries>
+   </install>
+
+
+
+  <uninstall>
+    <queries>
+      <query>DELETE FROM `#__marketplace_categories`</query>
+      <query>DROP TABLE `#__marketplace_categories`</query>
+      <query>DELETE FROM `#__marketplace_ads`</query>
+      <query>DROP TABLE `#__marketplace_ads`</query>
+      <query>DELETE FROM `#__marketplace_config`</query>
+      <query>DROP TABLE `#__marketplace_config`</query>
+      <query>DELETE FROM `#__marketplace_types`</query>
+      <query>DROP TABLE `#__marketplace_types`</query>
+    </queries>
+  </uninstall>
+
+
+   <installfile>install.marketplace.php</installfile>
+
+
+   <uninstallfile>uninstall.marketplace.php</uninstallfile>
+
+
+   <administration>
+      <menu>Marketplace</menu>
+            <submenu>
+      			<menu act="configuration">Configuration</menu>
+      			<menu act="types">Type Manager</menu>
+      			<menu act="categories">Category Manager</menu>
+      			<menu act="ads">Ad Manager</menu>
+		    </submenu>
+			<files>
+				<filename>admin.marketplace.php</filename>
+				<filename>admin.marketplace.html.php</filename>
+				<filename>marketplace.class.php</filename>
+				<filename>toolbar.marketplace.php</filename>
+				<filename>toolbar.marketplace.html.php</filename>
+				<filename>LICENSE.txt</filename>
+			</files>
+
+   </administration>
+
+
+</mosinstall>

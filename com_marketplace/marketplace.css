@@ -1,0 +1,531 @@
+/**
+ * marketplace.css
+ *
+ * The Stylesheet for the marketplace component
+ *
+ *
+ * @package com_marketplace
+ * @subpackage frontend
+ *
+ * @copyright 2005-2006 joomster.com Achim Fischer
+ * @author Achim Fischer
+ *
+ * This file is part of joomster.com Marketplace.
+ *
+ * Marketplace is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * Marketplace is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Marketplace; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+ */
+
+
+br {
+	clear: left;
+}
+
+
+/* topmenu setting */
+table.jooTopmenu {
+  width: 100%;
+  padding: 0px;
+  margin-bottom: 0px;
+}
+
+table.jooTopmenu td {
+  width: 150px;
+  border-left: 1px solid #FFFFFF;
+  border-top: 1px solid #FFFFFF;
+  background: #EEEEEE;
+  padding: 5px;
+  margin: 0px;
+  text-align: center;
+  font-size: 11px;
+}
+
+
+
+
+
+table.marketplace_recent5 {
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+}
+table.marketplace_recent5 td {
+  background: #DDDDDD;
+  padding: 0px;
+  margin: 0px;
+}
+
+
+
+
+table.marketplace_last5 {
+  width: 100%;
+  padding-top: 7px;
+  padding-bottom: 5px;
+  padding: 0px;
+  margin: 0px;
+  vertical-align: top;
+  text-align: left;
+}
+table.marketplace_last5 td {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 2px;
+}
+table.forum_last5 {
+  width: 100%;
+  padding-top: 7px;
+  padding-bottom: 5px;
+  padding: 0px;
+  margin: 0px;
+  vertical-align: top;
+  text-align: left;
+}
+table.forum_last5 td {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 2px;
+}
+
+
+
+table.marketplace {
+	width: 100%;
+	color: #000000;
+	border: 1px solid #CCCCCC;
+	background-color: #FFFFFF;
+}
+table.marketplace_header {
+	color: #000000;
+	background-color: #FFFFFF;
+}
+table.marketplace_select {
+	/* width: 100%; */
+	color: #000000;
+	background-color: #F0F0F0;
+}
+
+
+
+
+fieldset.marketplace {
+	color: #000000;
+	border: 1px solid #CCCCCC;
+}
+
+
+legend.marketplace {
+	color: #000000;
+	font-weight: bold;
+	border: 1px solid #CCCCCC;
+	padding: 10;
+}
+
+form.marketplace {
+	/* background-color: #FFFFFF; */
+}
+
+input.marketplace {
+	display: block;
+	width: 20em;
+	float: left;
+	border: 1px solid #CCCCCC;
+	background-color: #F0F0F0;
+	margin: 5px;
+	padding: 2px;
+}
+input.marketplace_required {
+	display: block;
+	width: 20em;
+	float: left;
+	border: 1px solid #CCCCCC;
+	background-color: #FFEEDD;
+	margin: 5px;
+	padding: 2px;
+}
+input.marketplace_error {
+	display: block;
+	width: 20em;
+	float: left;
+	border: 1px dotted #FF0000;
+	background-color: #FFEEDD;
+	margin: 5px;
+	padding: 2px;
+}
+input.marketplace_search {
+	display: block;
+	width: 10em;
+	float: left;
+	border: 1px solid #CCCCCC;
+	background-color: #F0F0F0;
+	margin: 5px;
+	padding: 2px;
+}
+
+textarea.marketplace_required {
+	width: 35em;
+	float: left;
+	border: 1px solid #CCCCCC;
+	/* background-color: #EEEEEE; */
+	background-color: #FFEEDD;
+	margin: 5px;
+	padding: 2px;
+}
+textarea.marketplace_error {
+	width: 35em;
+	float: left;
+	border: 1px dotted #FF0000;
+	background-color: #FFEEDD;
+	margin: 5px;
+	padding: 2px;
+}
+
+select.marketplace {
+	/* width: 10em; */
+	background-color: #EEEEEE;
+	margin: 5px;
+	padding: 2px;
+}
+
+
+label.marketplace {
+	width: 5em;
+	float: left;
+	margin: 5px;
+	padding: 2px;
+	text-align: right;
+}
+
+label.marketplace_center {
+	width: 20em;
+	float: left;
+	margin: 5px;
+	padding: 2px;
+	text-align: left;
+}
+
+label.marketplace_right {
+	width: 15em;
+	float: left;
+	margin: 5px;
+	padding: 2px;
+	text-align: left;
+}
+
+
+#writead_header1 {
+	border: 1px solid #CCCCCC;
+	background-color: #FFEEDD;
+	width: 2em;
+	margin: 5px;
+	padding: 2px;
+}
+#writead_header2 {
+	border: 1px solid #CCCCCC;
+	background-color: #EEEEEE;
+	width: 2em;
+	margin: 5px;
+	padding: 2px;
+}
+#writead_header3 {
+	border: 1px dotted #FF0000;
+	background-color: #FFEEDD;
+	width: 2em;
+	margin: 5px;
+	padding: 2px;
+}
+
+
+
+#index_tablecell {
+	background-color: #F7F7F7;
+	padding: 5px;
+}
+#index_tablecell_noentries {
+	background-color: #FFFFFF;
+	padding: 5px;
+}
+#index_tablecellcenter {
+	background-color: #F7F7F7;
+	text-align: center;
+	vertical-align: center;
+	padding: 5px;
+}
+
+
+#select_table {
+	width: 100%;
+	text-align: center;
+	margin: 5px;
+	/* background-color: #F7F7F7; */
+}
+#select_tablecell {
+	width: 100%;
+	text-align: right;
+	/* background-color: #F7F7F7; */
+}
+
+
+
+#pagenav_table {
+	width: 100%;
+	/* background-color: #F7F7F7; */
+}
+
+
+#pagenav_first {
+	text-align: left;
+	width: 25%;
+}
+#pagenav_last {
+	text-align: right;
+	width: 25%;
+}
+#pagenav_previous {
+	text-align: center;
+	width: 25%;
+}
+#pagenav_next {
+	text-align: center;
+	width: 25%;
+}
+
+#pagenav_button_first {
+	width: 100px;
+}
+#pagenav_button_last {
+	width: 100px;
+}
+#pagenav_button_previous {
+	width: 100px;
+}
+#pagenav_button_next {
+	width: 100px;
+}
+
+
+
+/* New in 1.2.2 */
+#privateAd {
+    width: 100%;
+	border: 2px solid lightgrey;
+	background-color: #white;
+	padding: 0px;
+}
+#commercialAd {
+    width: 100%;
+	border: 2px solid #AA0000;
+	background-color: #white;
+	padding: 0px;
+}
+
+
+
+/* New in 1.3 */
+
+/* Ad Type - create an id for every type. "jooAdTypeX" where X = id from type table */
+#jooAdType1 {
+	font-weight: normal;
+	text-align: center;
+	color: #990000;
+}
+#jooAdType2 {
+	font-weight: normal;
+	text-align: center;
+	color: #009900;
+}
+#jooAdType3 {
+	font-weight: normal;
+	text-align: center;
+	color: #000099;
+}
+/* more examples */
+#jooAdType4 {
+	font-weight: bold;
+	text-align: center;
+	color: #AA0000;
+}
+#jooAdType5 {
+	font-weight: normal;
+	text-align: center;
+	color: #000000;
+}
+
+
+.jooFooter {
+    color: #BBBBBB;
+    font-size: 9px;
+    text-align: center;
+}
+
+.jooFooter a {
+    color: #BBBBBB;
+    font-size: 9px;
+    text-align: center;
+    text-decoration: none;
+}
+#jooFooterIE {
+    color: #BBBBBB;
+    font-size: 9px;
+    text-align: center;
+    text-decoration: none;
+}
+
+
+
+
+.jooTable {
+	width: 100%;
+	background-color: lightgrey;
+	margin: 0px;
+	padding: 0px;
+	bordercollapse: collapse;
+}
+.jooTable th {
+    font-size: 11px;
+    font-weight: bold;
+    text-align: left;
+	background-color: #EEEEEE;
+	border-left: 1px solid white;
+	border-top: 1px solid white;
+	margin: 0px;
+	padding: 5px;
+}
+.jooTable td {
+    font-size: 11px;
+    font-weight: normal;
+    text-align: left;
+	margin: 0px;
+	padding: 5px;
+}
+
+
+
+
+.jooTopmenu td {
+  background: #EEEEEE;
+  padding: 5px;
+  margin: 0px;
+}
+
+
+
+.jooRecent5 {
+	width: 100%;
+	background-color: lightgrey;
+	margin: 0px;
+	padding: 0px;
+	bordercollapse: collapse;
+}
+.jooRecent5 th {
+    font-size: 11px;
+    font-weight: bold;
+    text-align: left;
+	background-color: #EEEEEE;
+	border-left: 1px solid white;
+	border-top: 1px solid white;
+	margin: 0px;
+	padding: 5px;
+}
+
+.jooRecent5 td {
+  background: #F7F7F7;
+  padding: 5px;
+  margin: 0px;
+  text-align: center;
+}
+
+
+/* show_category.php */
+#jooTopTextTop {
+	font-weight: bold;
+	text-align: left;
+	color: #777777;
+	background: white;
+	padding: 5px;
+}
+#jooTopTextBottom {
+	font-weight: normal;
+	text-align: left;
+	color: #777777;
+	background: white;
+	padding: 5px;
+}
+
+.jooCommercial {
+  background: #FFEEBB;
+  padding: 0px;
+  margin: 0px;
+  text-align: center;
+  vertical-align: center;
+  /* display: block; */
+  border-left: 1px solid white;
+  border-top: 1px solid white;
+}
+.jooFeatured {
+  background: #DDFFDD;
+  padding: 0px;
+  margin: 0px;
+  text-align: center;
+  vertical-align: center;
+  /* display: block; */
+  border-left: 1px solid white;
+  border-top: 1px solid white;
+}
+.jooNormal {
+  background: #F5F5F5;
+  padding: 0px;
+  margin: 0px;
+  text-align: center;
+  vertical-align: center;
+  border-left: 1px solid white;
+  border-top: 1px solid white;
+}
+
+
+/* show_ad.php */
+#jooAdHeader {
+    text-align: left;
+    font-weight: bold;
+	margin: 0px;
+	padding: 10px;
+}
+#jooAdText {
+    text-align: left;
+    font-weight: normal;
+	margin: 0px;
+	padding: 10px;
+}
+#jooAdImage {
+    text-align: center;
+    vertical-align: top;
+	margin: 0px;
+	padding: 0px;
+}
+#jooAdInfo {
+    text-align: left;
+    font-weight: normal;
+	margin: 0px;
+	padding: 10px;
+}
+#jooAdToolbar {
+    text-align: left;
+    font-weight: normal;
+	margin: 0px;
+	padding: 10px;
+}
+
+
+
+
